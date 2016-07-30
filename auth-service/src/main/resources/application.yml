@@ -1,0 +1,14 @@
+server.port: 8443
+
+spring:
+  application:
+    name: uaa
+  h2.console:
+    enabled: true
+    path: /console
+
+security.ignored: /console/**
+
+logging:
+  level:
+    com.netflix.discovery: 'OFF'

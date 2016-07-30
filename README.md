@@ -6,8 +6,10 @@ Technologies
 ---
 This project was built with the following technologies:
 
-  - [Java 8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html)
-  - [Maven 3.3.9](https://maven.apache.org/download.cgi)
+  - [Java - 8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html)
+  - [Maven - 3.3.9](https://maven.apache.org/download.cgi)
+  - [Spring Boot - 1.3.7](http://projects.spring.io/spring-boot/)
+  - [Spring Cloud - Brixton](http://projects.spring.io/spring-cloud/)
   - [Lombok](https://projectlombok.org/)
   - [H2 - InMemory database](http://www.h2database.com/html/main.html)
   - [Embedded Tomcat](http://tomcat.apache.org/)
@@ -32,3 +34,14 @@ $ mvn clean package
 ```
 
 >**Note**: *Make sure you're on project root dir*.
+
+Database
+---
+To access the database reach `http://$HOST:$PORT/console` from the browser and fill the fields with the following values:
+
+ - Driver Class: `org.h2.Driver`
+ - JDBC URL: `jdbc:h2:mem:testdb`
+ - User Name: `sa`
+ - Password: *empty value*
+ 
+>**Note**: There will be two service with available databases: authserver and booking-service. Make sure you'e reaching the correct $HOST and $PORT
