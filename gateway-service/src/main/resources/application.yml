@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: gateway
+
+logging:
+  level:
+    com.netflix.discovery: 'OFF'

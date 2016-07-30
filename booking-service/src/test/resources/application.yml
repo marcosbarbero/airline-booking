@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: booking
+  jpa:
+    show-sql: true
+    hibernate.ddl-auto: validate
+
+logging:
+  level:
+    com.netflix.discovery: 'OFF'
+
+flyway.schemas: booking

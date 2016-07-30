@@ -1,0 +1,15 @@
+server.port: 8443
+
+spring:
+  application:
+    name: booking
+  h2.console:
+    enabled: true
+    path: /console
+  jpa.hibernate.ddl-auto: validate
+
+security.ignored: /console/**
+
+logging:
+  level:
+    com.netflix.discovery: 'OFF'
