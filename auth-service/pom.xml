@@ -51,6 +51,7 @@
             <groupId>com.github.kstyrc</groupId>
             <artifactId>embedded-redis</artifactId>
             <version>${embedded-redis.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

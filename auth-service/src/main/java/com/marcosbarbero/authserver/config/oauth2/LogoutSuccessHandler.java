@@ -30,9 +30,9 @@ public class LogoutSuccessHandler extends SimpleUrlLogoutSuccessHandler {
     public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         Authentication auth = tokenExtractor.extract(request);
         if (auth != null) {
-            final OAuth2AccessToken oAuth2AccessToken = tokenStore.readAccessToken(auth.getPrincipal().toString());
+            final OAuth2AccessToken oAuth2AccessToken = this.tokenStore.readAccessToken(auth.getPrincipal().toString());
             if (oAuth2AccessToken != null) {
-                tokenStore.removeAccessToken(oAuth2AccessToken);
+                this.tokenStore.removeAccessToken(oAuth2AccessToken);
             }
         }
     }

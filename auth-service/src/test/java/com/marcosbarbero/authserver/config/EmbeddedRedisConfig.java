@@ -1,7 +1,7 @@
-package com.marcosbarbero.authserver.config.redis;
+package com.marcosbarbero.authserver.config;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import redis.clients.jedis.Protocol;
 import redis.embedded.RedisServer;
@@ -11,14 +11,14 @@ import java.io.IOException;
 import java.net.Socket;
 
 /**
- * Embedded Redis configuration.
+ * Embedded Redis Config for tests.
  *
  * @author Marcos Barbero
  */
-@Configuration
-public class EmdeddedRedisConfig {
+@Profile("test")
+public class EmbeddedRedisConfig {
 
-    RedisServer redisServer;
+    private RedisServer redisServer;
 
     private static boolean available(int port) {
         try (Socket ignored = new Socket("localhost", port)) {

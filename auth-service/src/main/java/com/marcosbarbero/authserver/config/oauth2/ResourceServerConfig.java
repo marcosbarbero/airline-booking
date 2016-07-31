@@ -15,6 +15,8 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
+    private static final String LOGOUT = "/logout";
+
     @Autowired
     private TokenStore tokenStore;
 
@@ -35,7 +37,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .anyRequest().authenticated()
             .and()
                 .logout()
-                    .logoutUrl("/logout")
+                    .logoutUrl(LOGOUT)
                     .logoutSuccessHandler(this.logoutSuccessHandler());
         // @formatter: on
     }
