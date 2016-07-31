@@ -18,13 +18,9 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(schema = "booking")
-public class Booking implements Serializable {
+@EqualsAndHashCode(callSuper = true)
+public class Booking extends AutoId implements Serializable {
     private static final long serialVersionUID = 393412128505036550L;
-
-    @Id
-    @Column(nullable = false, unique = true)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
 
     @JoinColumn(name = "customer_id")
     @ManyToOne(fetch = FetchType.LAZY)

@@ -7,10 +7,11 @@
     <artifactId>airline-booking</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <modules>
-        <module>discovery-service</module>
-        <module>gateway-service</module>
         <module>auth-service</module>
         <module>booking-service</module>
+        <module>discovery-service</module>
+        <module>gateway-service</module>
+        <module>web-ui</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -111,9 +112,12 @@
                     <dataFile>${basedir}/target/coverage-reports/jacoco-unit.exec</dataFile>
                     <excludes>
                         <exclude>com/marcosbarbero/**/entity/**</exclude>
+                        <exclude>com/marcosbarbero/**/config/**</exclude>
                         <exclude>com/marcosbarbero/**/enums/**</exclude>
                         <exclude>com/marcosbarbero/**/repository/**</exclude>
                         <exclude>com/marcosbarbero/**/*Application.*</exclude>
+                        <exclude>com/marcosbarbero/**/*DTO.*</exclude>
+                        <exclude>com/marcosbarbero/**/*Exception*.*</exclude>
                     </excludes>
                 </configuration>
                 <executions>

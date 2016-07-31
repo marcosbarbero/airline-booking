@@ -2,6 +2,7 @@ package com.marcosbarbero.booking.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -19,13 +20,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(schema = "booking")
-public class Customer implements Serializable {
+@EqualsAndHashCode(callSuper = true)
+public class Customer extends AutoId implements Serializable {
     private static final long serialVersionUID = 7028106544314377885L;
-
-    @Id
-    @Column(unique = true, nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
 
     @JoinColumn(name = "country_code")
     @ManyToOne(fetch = FetchType.EAGER)

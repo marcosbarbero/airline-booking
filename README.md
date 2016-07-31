@@ -15,6 +15,7 @@ This project was built with the following technologies:
   - [H2 - InMemory database](http://www.h2database.com/html/main.html)
   - [Embedded Tomcat](http://tomcat.apache.org/)
   - [JaCoCo](http://www.eclemma.org/jacoco/)
+  - [AngularJS - 1](https://angularjs.org/)
   
 Adding Project Lombok Agent
 ---

@@ -1,4 +1,4 @@
-server.port: 8443
+server.port: 8081
 
 spring:
   application:
@@ -6,12 +6,13 @@ spring:
   h2.console:
     enabled: true
     path: /console
-<<<<<<< HEAD
   jpa.hibernate.ddl-auto: validate
-=======
->>>>>>> 76ef394c3d56a621ccb53971dc61f6a40100b41d
 
-security.ignored: /console/**
+security:
+  ignored: /console/**
+  oauth2.resource:
+    user-info-uri: http://uaa/me
+    load-balanced: true
 
 logging:
   level:
