@@ -31,7 +31,7 @@ public class User {
     private Integer id;
 
     @NotNull
-    @Size(min = 10, max = 100)
+    @Size(min = 8, max = 100)
     @Column(unique = true, length = 100, nullable = false)
     private String username;
 
