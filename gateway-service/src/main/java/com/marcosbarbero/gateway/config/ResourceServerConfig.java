@@ -13,7 +13,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
-    private static final String PERMIT_ALL = "/**";
+    protected static final String PERMIT_ALL = "/**";
 
     @Override
     public void configure(HttpSecurity http) throws Exception {

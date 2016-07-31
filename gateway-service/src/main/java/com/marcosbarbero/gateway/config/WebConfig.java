@@ -14,7 +14,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 public class WebConfig {
 
-    private static final String MAPPING_ALL = "/**";
     private static final long MAX_AGE = 3600;
     private static final String METHODS = "GET,POST,HEAD,OPTIONS,PUT,PATCH,DELETE,TRACE";
 
@@ -23,7 +22,7 @@ public class WebConfig {
         return new WebMvcConfigurerAdapter() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping(MAPPING_ALL)
+                registry.addMapping(ResourceServerConfig.PERMIT_ALL)
                         .allowedMethods(METHODS.split(","))
                         .maxAge(MAX_AGE);
             }
