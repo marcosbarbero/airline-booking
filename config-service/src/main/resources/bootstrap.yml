@@ -1,0 +1,22 @@
+server.port: 8888
+
+security:
+  user:
+    name: configserver
+    password: d8f926ad
+
+encrypt:
+  key-store:
+    location: classpath:server.jks
+    password: letmein
+    alias: mytestkey
+    secret: changeme
+
+spring:
+  application:
+    name: configserver
+  cloud.config:
+    server:
+      bootstrap: true
+      git:
+        uri: https://github.com/marcosbarbero/airline-config-repo.git
