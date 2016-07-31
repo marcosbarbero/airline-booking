@@ -6,6 +6,8 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 /**
@@ -21,6 +23,8 @@ import java.io.Serializable;
 public class Country implements Serializable {
     private static final long serialVersionUID = -6688891731503040796L;
 
+    @Size(min = 2, max = 2)
+    @NotNull
     @Id
     @Column(unique = true, nullable = false, length = 2)
     private String code;
