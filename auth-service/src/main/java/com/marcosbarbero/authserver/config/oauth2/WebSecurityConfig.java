@@ -39,11 +39,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider() {
-        if (authenticationProvider == null) {
-            authenticationProvider = new DaoAuthenticationProvider();
-            authenticationProvider.setUserDetailsService(this.userDetailsService);
-            authenticationProvider.setPasswordEncoder(this.passwordEncoder);
+        if (this.authenticationProvider == null) {
+            this.authenticationProvider = new DaoAuthenticationProvider();
+            this.authenticationProvider.setUserDetailsService(this.userDetailsService);
+            this.authenticationProvider.setPasswordEncoder(this.passwordEncoder);
         }
-        return authenticationProvider;
+        return this.authenticationProvider;
     }
 }
