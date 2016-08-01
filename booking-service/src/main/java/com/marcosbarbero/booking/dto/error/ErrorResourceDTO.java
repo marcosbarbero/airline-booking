@@ -1,10 +1,9 @@
-package com.marcosbarbero.booking.dto;
+package com.marcosbarbero.booking.dto.error;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

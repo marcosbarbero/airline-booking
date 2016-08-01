@@ -1,6 +1,6 @@
 spring:
   application:
-    name: booking
+    name: customers
   jpa:
     show-sql: true
     hibernate.ddl-auto: validate

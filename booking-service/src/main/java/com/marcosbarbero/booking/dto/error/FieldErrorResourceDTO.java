@@ -1,4 +1,4 @@
-package com.marcosbarbero.booking.dto;
+package com.marcosbarbero.booking.dto.error;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;

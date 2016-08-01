@@ -1,10 +1,10 @@
-package com.marcosbarbero.booking.web.resources.error;
+package com.marcosbarbero.customer.web.resources.error;
 
-import com.marcosbarbero.booking.dto.error.ErrorResourceDTO;
-import com.marcosbarbero.booking.dto.error.FieldErrorResourceDTO;
-import com.marcosbarbero.booking.exception.InvalidRequestException;
-import com.marcosbarbero.booking.exception.ResourceAlreadyExists;
-import com.marcosbarbero.booking.exception.ResourceNotFoundException;
+import com.marcosbarbero.customer.dto.error.ErrorResourceDTO;
+import com.marcosbarbero.customer.dto.error.FieldErrorResourceDTO;
+import com.marcosbarbero.customer.exception.InvalidRequestException;
+import com.marcosbarbero.customer.exception.ResourceAlreadyExists;
+import com.marcosbarbero.customer.exception.ResourceNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

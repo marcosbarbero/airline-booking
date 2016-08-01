@@ -6,8 +6,10 @@ import com.marcosbarbero.booking.model.entity.enums.BookingStatus;
 import com.marcosbarbero.booking.model.repository.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
+import java.util.Collection;
 import java.util.Optional;
 
 /**
@@ -32,5 +34,14 @@ public class BookingService {
         Booking booking = optional.get();
         booking.setStatus(status);
         this.bookingRepository.save(booking);
+    }
+
+    @Transactional(isolation = Isolation.READ_COMMITTED)
+    public Collection<Booking> findByCustomerId(Integer id) {
+        Collection<Booking> bookings = this.bookingRepository.findByCustomerId(id);
+        if (bookings.isEmpty()) {
+            throw new ResourceNotFoundException(id);
+        }
+        return bookings;
     }
 }

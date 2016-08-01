@@ -1,5 +1,6 @@
 package com.marcosbarbero.booking.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.marcosbarbero.booking.model.entity.enums.FlightStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,6 +19,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(schema = "booking")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Flight implements Serializable {
     private static final long serialVersionUID = -6845496904405475804L;
 

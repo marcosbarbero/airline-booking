@@ -19,11 +19,10 @@
         </dependency>
 
         <!--<dependency>-->
-            <!--<groupId>org.flywaydb</groupId>-->
-            <!--<artifactId>flyway-core</artifactId>-->
+        <!--<groupId>mysql</groupId>-->
+        <!--<artifactId>mysql-connector-java</artifactId>-->
         <!--</dependency>-->
 
-        <!-- DB -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>

@@ -1,7 +1,7 @@
-package com.marcosbarbero.booking.web.resources;
+package com.marcosbarbero.customer.web.resources;
 
-import com.marcosbarbero.booking.model.entity.Customer;
-import com.marcosbarbero.booking.model.repository.CustomerRepository;
+import com.marcosbarbero.customer.model.entity.Customer;
+import com.marcosbarbero.customer.model.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -23,7 +23,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @RequestMapping(CustomerController.URI)
 public class CustomerController extends BasicController<Customer, CustomerRepository> {
 
-    protected static final String URI = "/customer";
+    protected static final String URI = "";
 
     @Autowired
     public CustomerController(final CustomerRepository customerRepository) {

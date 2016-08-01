@@ -120,6 +120,7 @@
                         <exclude>com/marcosbarbero/**/*Application.*</exclude>
                         <exclude>com/marcosbarbero/**/*DTO.*</exclude>
                         <exclude>com/marcosbarbero/**/*Exception*.*</exclude>
+                        <exclude>com/marcosbarbero/**/converter/**</exclude>
                     </excludes>
                 </configuration>
                 <executions>

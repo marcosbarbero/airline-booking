@@ -1,5 +1,6 @@
 package com.marcosbarbero.booking.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -18,6 +19,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(schema = "booking")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Airport implements Serializable {
     private static final long serialVersionUID = -6427986108292814616L;
 

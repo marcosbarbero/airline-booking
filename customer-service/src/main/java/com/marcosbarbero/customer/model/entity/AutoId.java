@@ -1,4 +1,4 @@
-package com.marcosbarbero.booking.model.entity;
+package com.marcosbarbero.customer.model.entity;
 
 import lombok.Data;
 

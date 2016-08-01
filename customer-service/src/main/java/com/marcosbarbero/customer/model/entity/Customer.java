@@ -1,4 +1,4 @@
-package com.marcosbarbero.booking.model.entity;
+package com.marcosbarbero.customer.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
@@ -10,8 +10,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * The customer representation.

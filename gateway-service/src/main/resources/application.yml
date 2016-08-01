@@ -7,7 +7,7 @@ logging:
     com.netflix.discovery: 'OFF'
 
 security:
-  ignored: /uaa/**
+  ignored: /uaa/**,/**/docs/**
   oauth2.resource:
     prefer-token-info: false
     user-info-uri: http://uaa/me

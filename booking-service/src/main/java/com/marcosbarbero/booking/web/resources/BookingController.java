@@ -1,5 +1,7 @@
 package com.marcosbarbero.booking.web.resources;
 
+import com.marcosbarbero.booking.dto.BookingDTO;
+import com.marcosbarbero.booking.dto.converter.BookingConverter;
 import com.marcosbarbero.booking.model.entity.Booking;
 import com.marcosbarbero.booking.model.entity.enums.BookingStatus;
 import com.marcosbarbero.booking.model.repository.BookingRepository;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
+import java.util.Collection;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
@@ -37,6 +40,19 @@ public class BookingController extends BasicController<Booking, BookingRepositor
     }
 
     /**
+     * Get the bookings for given customer id.
+     *
+     * @param id The customerId
+     * @return A List of booking
+     */
+    @RequestMapping(method = GET, value = "/customer/{id}")
+    public ResponseEntity<Collection<Booking>> getByCustomerId(@PathVariable Integer id) {
+        Collection<Booking> bookings = this.bookingService.findByCustomerId(id);
+        return ResponseEntity.ok(bookings);
+    }
+
+
+    /**
      * Return a ${@link Booking} for the given id.
      *
      * @param id The booking id
@@ -50,14 +66,14 @@ public class BookingController extends BasicController<Booking, BookingRepositor
     /**
      * Persist a ${@link Booking}.
      *
-     * @param booking The Booking to persist
-     * @param result  BindingResult
-     * @param builder UriComponentsBuilder
+     * @param bookingDTO The Booking to persist
+     * @param result     BindingResult
+     * @param builder    UriComponentsBuilder
      * @return StatusCode 200 with the header Location with new resource
      */
     @RequestMapping(method = POST)
-    public ResponseEntity save(@RequestBody @Valid Booking booking, BindingResult result, UriComponentsBuilder builder) {
-        return super.save(booking, result, builder);
+    public ResponseEntity save(@RequestBody @Valid BookingDTO bookingDTO, BindingResult result, UriComponentsBuilder builder) {
+        return super.save(BookingConverter.toBooking(bookingDTO), result, builder);
     }
 
     /**

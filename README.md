@@ -9,7 +9,6 @@ This project was built with the following technologies:
   - [Java - 8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html)
   - [Maven - 3.3.9](https://maven.apache.org/download.cgi)
   - [Spring Boot - 1.4.0](http://projects.spring.io/spring-boot/)
-  - [Flyway](https://flywaydb.org/)
   - [Spring Cloud - Brixton](http://projects.spring.io/spring-cloud/)
   - [Lombok](https://projectlombok.org/)
   - [H2 - InMemory database](http://www.h2database.com/html/main.html)

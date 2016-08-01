@@ -1,5 +1,6 @@
 package com.marcosbarbero.booking.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,6 +19,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(schema = "booking")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Schedule implements Serializable {
     private static final long serialVersionUID = -6718405251387892891L;
 

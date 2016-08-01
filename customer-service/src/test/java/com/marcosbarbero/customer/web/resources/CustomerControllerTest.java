@@ -1,21 +1,18 @@
-package com.marcosbarbero.booking.web.resources;
+package com.marcosbarbero.customer.web.resources;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.marcosbarbero.booking.BookingApplication;
-import com.marcosbarbero.booking.helper.Given;
-import com.marcosbarbero.booking.model.entity.Customer;
-import com.marcosbarbero.booking.model.repository.CustomerRepository;
+import com.marcosbarbero.customer.CustomerApplication;
+import com.marcosbarbero.customer.helper.Given;
+import com.marcosbarbero.customer.model.entity.Customer;
+import com.marcosbarbero.customer.model.repository.CustomerRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -33,7 +30,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @author Marcos Barbero
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = BookingApplication.class)
+@SpringBootTest(classes = CustomerApplication.class)
 public class CustomerControllerTest {
 
     MockMvc mockMvc;

@@ -1,7 +1,7 @@
 server.port: 8081
 
 security:
-  ignored: /console/**
+  ignored: /console/**,/docs/**
   oauth2.resource:
     user-info-uri: http://uaa/me
     load-balanced: true
@@ -12,10 +12,13 @@ logging:
 
 spring:
   application:
-    name: booking
+    name: bookings
   h2.console:
     enabled: true
     path: /console
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
   datasource:
     tomcat:
       max-wait: 10000
