@@ -16,7 +16,7 @@ import java.io.Serializable;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(schema = "booking")
+@Table(schema = "booking", uniqueConstraints = @UniqueConstraint(columnNames = {"aircraft_id", "travel_class_id"}))
 public class AircraftClass implements Serializable {
     private static final long serialVersionUID = 653687593278323856L;
 

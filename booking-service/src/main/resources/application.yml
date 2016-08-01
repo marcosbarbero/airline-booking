@@ -1,13 +1,5 @@
 server.port: 8081
 
-spring:
-  application:
-    name: booking
-  h2.console:
-    enabled: true
-    path: /console
-  jpa.hibernate.ddl-auto: validate
-
 security:
   ignored: /console/**
   oauth2.resource:
@@ -17,3 +9,24 @@ security:
 logging:
   level:
     com.netflix.discovery: 'OFF'
+
+spring:
+  application:
+    name: booking
+  h2.console:
+    enabled: true
+    path: /console
+  datasource:
+    tomcat:
+      max-wait: 10000
+      max-active: 50
+      test-on-borrow: true
+      validation-query: SELECT 1
+      test-while-idle: true
+      remove-abandoned: true
+  jpa:
+    database: MYSQL
+    properties:
+      hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      ddl-auto: validate

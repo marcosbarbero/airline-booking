@@ -1,5 +1,6 @@
 package com.marcosbarbero.booking.model.entity;
 
+import com.marcosbarbero.booking.model.entity.enums.BookingStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -7,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * The Booking representation.
@@ -30,4 +32,19 @@ public class Booking extends AutoId implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     private FlightClass flightClass;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 10)
+    private BookingStatus status;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(nullable = false)
+    private Date creationDate;
+
+    @OneToOne(mappedBy = "booking", fetch = FetchType.LAZY)
+    private Payment payment;
+
+    @PrePersist
+    public void createdDate() {
+        this.creationDate = new Date();
+    }
 }

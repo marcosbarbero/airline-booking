@@ -43,6 +43,7 @@ public class BasicController<T extends AutoId, R extends JpaRepository> implemen
      * @param id The id˚
      * @return The response.
      */
+    @SuppressWarnings("unchecked")
     protected ResponseEntity<T> get(Integer id) {
         Optional<T> found = Optional.ofNullable((T) this.repository.findOne(id));
         found.orElseThrow(() -> new ResourceNotFoundException(id));
@@ -58,6 +59,7 @@ public class BasicController<T extends AutoId, R extends JpaRepository> implemen
      * @param builder The uri builder
      * @return StatusCode 200 with resource in header Location
      */
+    @SuppressWarnings("unchecked")
     protected ResponseEntity save(T toSave, BindingResult result, UriComponentsBuilder builder) {
         if (result.hasErrors()) {
             throw new InvalidRequestException(result);

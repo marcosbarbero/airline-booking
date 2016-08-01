@@ -1,7 +1,9 @@
 package com.marcosbarbero.booking.web.resources;
 
 import com.marcosbarbero.booking.model.entity.Booking;
+import com.marcosbarbero.booking.model.entity.enums.BookingStatus;
 import com.marcosbarbero.booking.model.repository.BookingRepository;
+import com.marcosbarbero.booking.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -13,8 +15,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
 
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 /**
  * Controller to handle requests to ${@link com.marcosbarbero.booking.model.entity.Booking} resource.
@@ -27,9 +28,12 @@ public class BookingController extends BasicController<Booking, BookingRepositor
 
     protected static final String URI = "";
 
+    private final BookingService bookingService;
+
     @Autowired
-    public BookingController(final BookingRepository bookingRepository) {
+    public BookingController(final BookingRepository bookingRepository, final BookingService bookingService) {
         super(URI, bookingRepository);
+        this.bookingService = bookingService;
     }
 
     /**
@@ -54,5 +58,18 @@ public class BookingController extends BasicController<Booking, BookingRepositor
     @RequestMapping(method = POST)
     public ResponseEntity save(@RequestBody @Valid Booking booking, BindingResult result, UriComponentsBuilder builder) {
         return super.save(booking, result, builder);
+    }
+
+    /**
+     * Update the Booking of a given id with the given status.
+     *
+     * @param id     The id
+     * @param status The BookingStatus
+     * @return The updated entity
+     */
+    @RequestMapping(method = PUT, value = "/{id}/status/{status}")
+    public ResponseEntity updateStatus(@PathVariable Integer id, @PathVariable BookingStatus status) {
+        this.bookingService.updateStatus(id, status);
+        return ResponseEntity.noContent().build();
     }
 }

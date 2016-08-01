@@ -16,7 +16,7 @@ import java.io.Serializable;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(schema = "booking")
+@Table(schema = "booking", uniqueConstraints = @UniqueConstraint(columnNames = {"origin_airport_iata_code", "dest_airport_iata_code"}))
 public class Route implements Serializable {
     private static final long serialVersionUID = -7471386277192531343L;
 
