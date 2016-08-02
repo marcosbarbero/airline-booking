@@ -8,6 +8,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <modules>
         <module>auth-service</module>
+        <module>backoffice-front-ui</module>
         <module>booking-service</module>
         <module>config-service</module>
         <module>customer-service</module>
@@ -68,6 +69,11 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-hystrix</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
         </dependency>
 
         <!-- REST Docs-->

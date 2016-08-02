@@ -3,11 +3,17 @@ server.port: 8443
 spring:
   application:
     name: uaa
-  h2.console:
-    enabled: true
-    path: /console
-
-security.ignored: /console/**
+  datasource:
+    url: 'jdbc:mysql://localhost:3306/booking'
+    username: root
+    tomcat:
+      max-wait: 10000
+      max-idle: 100
+      max-active: 100
+      test-on-borrow: true
+      validation-query: SELECT 1
+      test-while-idle: true
+      remove-abandoned: true
 
 logging:
   level:

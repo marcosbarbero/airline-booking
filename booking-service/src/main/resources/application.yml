@@ -13,9 +13,6 @@ logging:
 spring:
   application:
     name: bookings
-  h2.console:
-    enabled: true
-    path: /console
   jackson:
     serialization:
       WRITE_DATES_AS_TIMESTAMPS: false

@@ -1,0 +1,4 @@
+server.port: 9191
+
+security:
+  basic.enabled: false

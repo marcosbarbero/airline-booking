@@ -6,9 +6,10 @@ security:
 
 spring:
   social.twitter:
-    appId: $appid
-    appSecret: $secret
+    appId: 7c7ANtB6g51L8nXicy8tfVYaH
+    appSecret: FRkm8zYoKqEczLS99EL6Y6h3hKsoIwMqNXmqIYosBwnKvIUeRC
 
 booking:
-  customers:
-    endpoint: http://localhost:8082
+  endpoints:
+    customers: http://localhost:8082
+    airports: http://localhost:8083/airports

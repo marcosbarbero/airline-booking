@@ -11,4 +11,5 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties("booking.endpoints")
 public class BookingProperties {
     private String customers;
+    private String airports;
 }
