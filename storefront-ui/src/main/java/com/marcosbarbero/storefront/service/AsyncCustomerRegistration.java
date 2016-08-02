@@ -1,10 +1,10 @@
 package com.marcosbarbero.storefront.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.marcosbarbero.storefront.config.BookingProperties;
 import com.marcosbarbero.storefront.dto.CustomerDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.social.connect.UserProfile;
@@ -20,12 +20,12 @@ public class AsyncCustomerRegistration {
 
     private final RestTemplate restTemplate;
 
-    @Value("${booking.customers.endpoint}")
-    private String endpoint;
+    private final BookingProperties bookingProperties;
 
     @Autowired
-    public AsyncCustomerRegistration(final RestTemplate restTemplate) {
+    public AsyncCustomerRegistration(final RestTemplate restTemplate, BookingProperties bookingProperties) {
         this.restTemplate = restTemplate;
+        this.bookingProperties = bookingProperties;
     }
 
     /**
@@ -49,9 +49,10 @@ public class AsyncCustomerRegistration {
      */
     private boolean found(final String username) {
         String[] args = {username};
-        ResponseEntity<String> exchange = restTemplate.exchange(this.endpoint + "/{username}",
+        ResponseEntity<String> exchange = restTemplate.exchange(this.bookingProperties.getCustomers() + "/username/{username}",
                 HttpMethod.GET, new HttpEntity<>((Void) null),
                 String.class, args);
+        log.info("The username: '{}' returned statusCode: '{}'", username, exchange.getStatusCode());
         return exchange.getStatusCode().is2xxSuccessful();
     }
 
@@ -64,7 +65,7 @@ public class AsyncCustomerRegistration {
         final HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
         final HttpEntity<CustomerDTO> entity = new HttpEntity<>(build(userProfile), headers);
-        this.restTemplate.exchange(endpoint, HttpMethod.POST, entity, String.class);
+        this.restTemplate.exchange(this.bookingProperties.getCustomers(), HttpMethod.POST, entity, String.class);
         log.info("Customer registered: {}", userProfile.getName());
     }
 

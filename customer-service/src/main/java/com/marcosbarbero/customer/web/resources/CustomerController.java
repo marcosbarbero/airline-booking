@@ -40,7 +40,7 @@ public class CustomerController extends BasicController<Customer, CustomerReposi
         return super.get(id);
     }
 
-    @RequestMapping(value = "/username", method = GET)
+    @RequestMapping(value = "/username/{username}", method = GET)
     public ResponseEntity<Customer> get(@PathVariable String username) {
         Optional<Customer> optional = Optional.ofNullable(this.customerRepository.findOneByUsername(username));
         optional.orElseThrow(ResourceNotFoundException::new);

@@ -42,4 +42,4 @@ Database
 ---
 This project will be using [MySQL - 5.7.14](https://www.mysql.com/) as database. There will be two available schemas: *oauth* and *booking*.
 
->**Note**:To access the database use your favorite SQL client and configure properly the connection params.
+>**Note**: To access the database use your favorite SQL client and configure properly the connection params.
