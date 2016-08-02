@@ -6,10 +6,7 @@ import com.marcosbarbero.customer.model.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
@@ -40,8 +37,8 @@ public class CustomerController extends BasicController<Customer, CustomerReposi
         return super.get(id);
     }
 
-    @RequestMapping(value = "/username/{username}", method = GET)
-    public ResponseEntity<Customer> get(@PathVariable String username) {
+    @RequestMapping(method = GET)
+    public ResponseEntity<Customer> get(@RequestParam String username) {
         Optional<Customer> optional = Optional.ofNullable(this.customerRepository.findOneByUsername(username));
         optional.orElseThrow(ResourceNotFoundException::new);
         return ResponseEntity.ok(optional.get());

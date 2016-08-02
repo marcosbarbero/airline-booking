@@ -38,7 +38,6 @@ public class Customer extends AutoId implements Serializable {
     @Column(nullable = false, length = 255)
     private String fullName;
 
-    @NotNull
     @Column(nullable = true, length = 45)
     private String phone;
 }

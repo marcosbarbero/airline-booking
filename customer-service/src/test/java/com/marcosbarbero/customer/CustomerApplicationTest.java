@@ -13,6 +13,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class CustomerApplicationTest {
 
     @Test
-    public void tesetLoadContext() {
+    public void testLoadContext() {
     }
 }
