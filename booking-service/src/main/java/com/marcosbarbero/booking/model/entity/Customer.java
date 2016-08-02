@@ -29,11 +29,6 @@ public class Customer extends AutoId implements Serializable {
     private static final long serialVersionUID = 7028106544314377885L;
 
     @NotNull
-    @JoinColumn(name = "country_code")
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Country country;
-
-    @NotNull
     @Size(min = 8, max = 100)
     @Column(nullable = false, unique = true)
     private String username;
@@ -44,6 +39,6 @@ public class Customer extends AutoId implements Serializable {
     private String fullName;
 
     @NotNull
-    @Column(nullable = false, length = 45)
+    @Column(nullable = true, length = 45)
     private String phone;
 }

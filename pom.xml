@@ -13,7 +13,8 @@
         <module>customer-service</module>
         <module>discovery-service</module>
         <module>gateway-service</module>
-        <module>web-ui</module>
+        <module>search-service</module>
+        <module>storefront-ui</module>
     </modules>
     <packaging>pom</packaging>
 

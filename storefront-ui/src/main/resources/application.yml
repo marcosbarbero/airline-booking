@@ -1,0 +1,14 @@
+server.port: 9090
+
+security:
+  basic.enabled: false
+  ignored: /**
+
+spring:
+  social.twitter:
+    appId: $appid
+    appSecret: $secret
+
+booking:
+  customers:
+    endpoint: http://localhost:8082

@@ -1,8 +1,10 @@
+USE booking;
 -- -----------------------------------------------------
 -- Initializing data
 -- -----------------------------------------------------
 
 -- country
+DELETE FROM booking.country;
 INSERT INTO booking.country (code, name) VALUES ('BR', 'Brazil');
 INSERT INTO booking.country (code, name) VALUES ('US', 'United States');
 
@@ -135,7 +137,6 @@ INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cen
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (14, 5, 14, 4000);
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (15, 5, 15, 3500);
 
-
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (16, 6, 1, 5000);
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (17, 6, 2, 4000);
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (18, 6, 3, 3500);
@@ -156,7 +157,6 @@ INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cen
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (29, 10, 14, 4000);
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (30, 10, 15, 3500);
 
-
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (31, 11, 1, 5000);
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (32, 11, 2, 4000);
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (33, 11, 3, 3500);
@@ -176,7 +176,6 @@ INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cen
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (43, 15, 13, 5000);
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (44, 15, 14, 4000);
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (45, 15, 15, 3500);
-
 
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (46, 16, 1, 5000);
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (47, 16, 2, 4000);
@@ -199,4 +198,5 @@ INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cen
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (60, 20, 15, 3500);
 
 -- customer
-INSERT INTO booking.customer (id, country_code, username, full_name, phone) VALUES (1, 'BR', 'user.name', 'Customer Full Name', '+5511111111');
+DELETE FROM booking.customer;
+INSERT INTO booking.customer (id, username, full_name, phone) VALUES (1, 'user.name', 'Customer Full Name', '+5511111111');
