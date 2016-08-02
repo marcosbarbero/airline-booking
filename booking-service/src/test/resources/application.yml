@@ -1,4 +1,6 @@
 spring:
+  jackson:
+    defaultPropertyInclusion: NON_NULL
   application:
     name: booking
   jpa:

@@ -9,6 +9,7 @@ INSERT INTO booking.country (code, name) VALUES ('BR', 'Brazil');
 INSERT INTO booking.country (code, name) VALUES ('US', 'United States');
 
 -- airport
+DELETE FROM booking.airport;
 INSERT INTO booking.airport(iata_code, name, country_code) VALUES ('GRU', 'São Paulo–Guarulhos International Airport', 'BR');
 INSERT INTO booking.airport(iata_code, name, country_code) VALUES ('GIG', 'Rio de Janeiro–Galeão International Airport', 'BR');
 
@@ -16,6 +17,7 @@ INSERT INTO booking.airport(iata_code, name, country_code) VALUES ('GFL', 'Floyd
 INSERT INTO booking.airport(iata_code, name, country_code) VALUES ('ALB', '	Albany International Airport', 'US');
 
 -- route
+DELETE FROM booking.route;
 INSERT INTO booking.route(id, origin_airport_iata_code, dest_airport_iata_code) VALUES (1,'GRU','GIG');
 INSERT INTO booking.route(id, origin_airport_iata_code, dest_airport_iata_code) VALUES (2,'GRU','GFL');
 INSERT INTO booking.route(id, origin_airport_iata_code, dest_airport_iata_code) VALUES (3,'GRU','ALB');
@@ -31,6 +33,7 @@ INSERT INTO booking.route(id, origin_airport_iata_code, dest_airport_iata_code) 
 INSERT INTO booking.route(id, origin_airport_iata_code, dest_airport_iata_code) VALUES (10,'ALB','GIG');
 
 -- schedule
+DELETE FROM booking.schedule;
 INSERT INTO booking.schedule(id, route_id, departure_time_gmt, arrival_time_gmt) VALUES (1, 1, timestampadd(hour, 1, current_timestamp()), timestampadd(hour, 5, current_timestamp()));
 INSERT INTO booking.schedule(id, route_id, departure_time_gmt, arrival_time_gmt) VALUES (2, 1, timestampadd(hour, 2, current_timestamp()), timestampadd(hour, 5, current_timestamp()));
 
@@ -62,6 +65,7 @@ INSERT INTO booking.schedule(id, route_id, departure_time_gmt, arrival_time_gmt)
 INSERT INTO booking.schedule(id, route_id, departure_time_gmt, arrival_time_gmt) VALUES (20, 10, timestampadd(hour, 2, current_timestamp()), timestampadd(hour, 5, current_timestamp()));
 
 -- flight
+DELETE FROM booking.flight;
 INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (1, 1, left(random_uuid(), 8), 'ACTIVE');
 INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (2, 2, left(random_uuid(), 8), 'ACTIVE');
 INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (3, 3, left(random_uuid(), 8), 'ACTIVE');
@@ -84,6 +88,7 @@ INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (19, 19, left(
 INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (20, 20, left(random_uuid(), 8), 'ACTIVE');
 
 -- aircraft
+DELETE FROM booking.aircraft;
 INSERT INTO booking.aircraft(id, model) VALUES (1, 'Boeing 737');
 INSERT INTO booking.aircraft(id, model) VALUES (2, 'Boeing 747');
 INSERT INTO booking.aircraft(id, model) VALUES (3, 'Boeing 767');
@@ -91,11 +96,13 @@ INSERT INTO booking.aircraft(id, model) VALUES (4, 'Boeing 777');
 INSERT INTO booking.aircraft(id, model) VALUES (5, 'Boeing 787');
 
 -- travel_class
+DELETE FROM booking.travel_class;
 INSERT INTO booking.travel_class(id, name) VALUES(1, 'First class');
 INSERT INTO booking.travel_class(id, name) VALUES(2, 'Business class');
 INSERT INTO booking.travel_class(id, name) VALUES(3, 'Economy class');
 
 -- aircraft_class
+DELETE FROM booking.aircraft_class;
 INSERT INTO booking.aircraft_class(id, aircraft_id, travel_class_id) VALUES (1, 1, 1);
 INSERT INTO booking.aircraft_class(id, aircraft_id, travel_class_id) VALUES (2, 1, 2);
 INSERT INTO booking.aircraft_class(id, aircraft_id, travel_class_id) VALUES (3, 1, 3);
@@ -117,6 +124,7 @@ INSERT INTO booking.aircraft_class(id, aircraft_id, travel_class_id) VALUES (14,
 INSERT INTO booking.aircraft_class(id, aircraft_id, travel_class_id) VALUES (15, 5, 3);
 
 -- flight_class
+DELETE FROM booking.flight_class;
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (1, 1, 1, 5000);
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (2, 1, 2, 4000);
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (3, 1, 3, 3500);
@@ -200,3 +208,7 @@ INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cen
 -- customer
 DELETE FROM booking.customer;
 INSERT INTO booking.customer (id, username, full_name, phone) VALUES (1, 'user.name', 'Customer Full Name', '+5511111111');
+
+-- booking
+DELETE FROM booking.booking;
+INSERT INTO booking.booking (id, customer_id, flight_class_id, status, creation_date) values (1, 1, 1, 'CONFIRMED', now());

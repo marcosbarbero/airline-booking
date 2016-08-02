@@ -3,7 +3,6 @@ package com.marcosbarbero.authserver.service;
 import com.marcosbarbero.authserver.AuthServerApplication;
 import com.marcosbarbero.authserver.helper.Given;
 import com.marcosbarbero.authserver.model.entity.User;
-import com.marcosbarbero.authserver.model.entity.enums.UserStatus;
 import com.marcosbarbero.authserver.model.repository.UserRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,8 +14,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.util.Assert;
-
-import java.util.Collections;
 
 import static org.mockito.BDDMockito.any;
 import static org.mockito.BDDMockito.given;

@@ -6,16 +6,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-
 /**
  * @author Marcos Barbero
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BookingDTO implements Serializable {
-    private static final long serialVersionUID = -2646281810259013487L;
+public class BookingDTO {
 
     @NotNull
     private Integer customerId;

@@ -1,6 +1,7 @@
 -- -----------------------------------------------------
 -- Schema booking
 -- -----------------------------------------------------
+DROP SCHEMA IF EXISTS booking;
 CREATE SCHEMA IF NOT EXISTS booking;
 USE booking ;
 

@@ -28,12 +28,12 @@ public class BookingService {
     }
 
     @Transactional
-    public void updateStatus(Integer id, BookingStatus status) {
+    public Booking updateStatus(Integer id, BookingStatus status) {
         Optional<Booking> optional = Optional.ofNullable(this.bookingRepository.findOne(id));
         optional.orElseThrow(() -> new ResourceNotFoundException(id));
         Booking booking = optional.get();
         booking.setStatus(status);
-        this.bookingRepository.save(booking);
+        return this.bookingRepository.save(booking);
     }
 
     @Transactional(isolation = Isolation.READ_COMMITTED)
