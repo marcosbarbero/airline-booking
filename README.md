@@ -15,6 +15,7 @@ This project was built with the following technologies:
   - [Embedded Tomcat](http://tomcat.apache.org/)
   - [JaCoCo](http://www.eclemma.org/jacoco/)
   - [AngularJS - 1](https://angularjs.org/)
+  - [MySQL - 5.7.14](https://www.mysql.com/)
   
 Adding Project Lombok Agent
 ---
@@ -29,7 +30,7 @@ missing methods and fields.
 Build
 ---
 This application will generate an executable jar file, to build and run **ensure you have Java 8 and Maven 3 installed** 
-and execute the following commands on the terminal:
+and execute the following command on the terminal:
 
 ```
 $ mvn clean package
@@ -39,11 +40,6 @@ $ mvn clean package
 
 Database
 ---
-To access the database reach `http://$HOST:$PORT/console` from the browser and fill the fields with the following values:
+This project will be using [MySQL - 5.7.14](https://www.mysql.com/) as database. There will be two available schemas: *oauth* and *booking*.
 
- - Driver Class: `org.h2.Driver`
- - JDBC URL: `jdbc:h2:mem:testdb`
- - User Name: `sa`
- - Password: *empty value*
- 
->**Note**: There will be two service with available databases: authserver and booking-service. Make sure you'e reaching the correct $HOST and $PORT
+>**Note**:To access the database use your favorite SQL client and configure properly the connection params.
