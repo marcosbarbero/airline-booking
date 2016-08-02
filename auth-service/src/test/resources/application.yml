@@ -1,3 +1,5 @@
 logging:
   level:
     com.netflix.discovery: 'OFF'
+
+security.ignored: /users

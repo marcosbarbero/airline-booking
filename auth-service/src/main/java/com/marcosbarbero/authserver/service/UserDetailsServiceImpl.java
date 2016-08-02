@@ -1,6 +1,6 @@
 package com.marcosbarbero.authserver.service;
 
-import com.marcosbarbero.authserver.authentication.UserDetails;
+import com.marcosbarbero.authserver.config.oauth2.UserDetails;
 import com.marcosbarbero.authserver.model.entity.User;
 import com.marcosbarbero.authserver.model.entity.enums.UserStatus;
 import com.marcosbarbero.authserver.model.repository.UserRepository;

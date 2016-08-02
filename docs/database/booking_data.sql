@@ -1,8 +1,10 @@
+USE booking;
 -- -----------------------------------------------------
 -- Initializing data
 -- -----------------------------------------------------
 
 -- country
+DELETE FROM booking.country;
 INSERT INTO booking.country (code, name) VALUES ('BR', 'Brazil');
 INSERT INTO booking.country (code, name) VALUES ('US', 'United States');
 
@@ -60,26 +62,26 @@ INSERT INTO booking.schedule(id, route_id, departure_time_gmt, arrival_time_gmt)
 INSERT INTO booking.schedule(id, route_id, departure_time_gmt, arrival_time_gmt) VALUES (20, 10, timestampadd(hour, 2, current_timestamp()), timestampadd(hour, 5, current_timestamp()));
 
 -- flight
-INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (1, 1, left(random_uuid(), 8), 'ACTIVE');
-INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (2, 2, left(random_uuid(), 8), 'ACTIVE');
-INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (3, 3, left(random_uuid(), 8), 'ACTIVE');
-INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (4, 4, left(random_uuid(), 8), 'ACTIVE');
-INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (5, 5, left(random_uuid(), 8), 'ACTIVE');
-INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (6, 6, left(random_uuid(), 8), 'ACTIVE');
-INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (7, 7, left(random_uuid(), 8), 'ACTIVE');
-INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (8, 8, left(random_uuid(), 8), 'ACTIVE');
-INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (9, 9, left(random_uuid(), 8), 'ACTIVE');
-INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (10, 10, left(random_uuid(), 8), 'ACTIVE');
-INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (11, 11, left(random_uuid(), 8), 'ACTIVE');
-INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (12, 12, left(random_uuid(), 8), 'ACTIVE');
-INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (13, 13, left(random_uuid(), 8), 'ACTIVE');
-INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (14, 14, left(random_uuid(), 8), 'ACTIVE');
-INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (15, 15, left(random_uuid(), 8), 'ACTIVE');
-INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (16, 16, left(random_uuid(), 8), 'ACTIVE');
-INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (17, 17, left(random_uuid(), 8), 'ACTIVE');
-INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (18, 18, left(random_uuid(), 8), 'ACTIVE');
-INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (19, 19, left(random_uuid(), 8), 'ACTIVE');
-INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (20, 20, left(random_uuid(), 8), 'ACTIVE');
+INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (1, 1, left(uuid(), 8), 'ACTIVE');
+INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (2, 2, left(uuid(), 8), 'ACTIVE');
+INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (3, 3, left(uuid(), 8), 'ACTIVE');
+INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (4, 4, left(uuid(), 8), 'ACTIVE');
+INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (5, 5, left(uuid(), 8), 'ACTIVE');
+INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (6, 6, left(uuid(), 8), 'ACTIVE');
+INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (7, 7, left(uuid(), 8), 'ACTIVE');
+INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (8, 8, left(uuid(), 8), 'ACTIVE');
+INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (9, 9, left(uuid(), 8), 'ACTIVE');
+INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (10, 10, left(uuid(), 8), 'ACTIVE');
+INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (11, 11, left(uuid(), 8), 'ACTIVE');
+INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (12, 12, left(uuid(), 8), 'ACTIVE');
+INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (13, 13, left(uuid(), 8), 'ACTIVE');
+INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (14, 14, left(uuid(), 8), 'ACTIVE');
+INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (15, 15, left(uuid(), 8), 'ACTIVE');
+INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (16, 16, left(uuid(), 8), 'ACTIVE');
+INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (17, 17, left(uuid(), 8), 'ACTIVE');
+INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (18, 18, left(uuid(), 8), 'ACTIVE');
+INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (19, 19, left(uuid(), 8), 'ACTIVE');
+INSERT INTO booking.flight (id, schedule_id, code, status) VALUES (20, 20, left(uuid(), 8), 'ACTIVE');
 
 -- aircraft
 INSERT INTO booking.aircraft(id, model) VALUES (1, 'Boeing 737');
@@ -135,7 +137,6 @@ INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cen
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (14, 5, 14, 4000);
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (15, 5, 15, 3500);
 
-
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (16, 6, 1, 5000);
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (17, 6, 2, 4000);
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (18, 6, 3, 3500);
@@ -156,7 +157,6 @@ INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cen
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (29, 10, 14, 4000);
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (30, 10, 15, 3500);
 
-
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (31, 11, 1, 5000);
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (32, 11, 2, 4000);
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (33, 11, 3, 3500);
@@ -176,7 +176,6 @@ INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cen
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (43, 15, 13, 5000);
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (44, 15, 14, 4000);
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (45, 15, 15, 3500);
-
 
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (46, 16, 1, 5000);
 INSERT INTO booking.flight_class (id, flight_id, aircraft_class_id, price_in_cents) VALUES (47, 16, 2, 4000);

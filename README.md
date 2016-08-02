@@ -1,6 +1,6 @@
 Airline booking
 ---
-It' an air ticket reservation system. All it' documentation can be found in the `docs` dir.
+It' an airline ticket reservation system. All it' documentation can be found in the `docs` dir.
 
 Technologies
 ---
@@ -16,6 +16,7 @@ This project was built with the following technologies:
   - [JaCoCo](http://www.eclemma.org/jacoco/)
   - [AngularJS - 1](https://angularjs.org/)
   - [MySQL - 5.7.14](https://www.mysql.com/)
+  - [Redis - 3.2.3](http://redis.io/)
   
 Adding Project Lombok Agent
 ---
@@ -41,5 +42,46 @@ $ mvn clean package
 Database
 ---
 This project will be using [MySQL - 5.7.14](https://www.mysql.com/) as database. There will be two available schemas: *oauth* and *booking*.
+The database scripts is located at dir `docs/database`:
+
+ - oauth_schema.sql
+ - oauth_data.sql
+ - booking_schema.sql
+ - booking_data.sql
+ 
+First execute the scripts with *\_schema.sql*. 
 
 >**Note**: To access the database use your favorite SQL client and configure properly the connection params.
+  
+Code Coverage
+---
+This project uses [JaCoCo](http://www.eclemma.org/jacoco/) for code coverage. To check it's result execute:
+
+```
+$ mvn clean package
+```
+
+When the tests finishes the result you'll see a message like this:
+```
+[INFO] Airline Booking .................................... SUCCESS [  0.679 s]
+[INFO] auth-service ....................................... SUCCESS [ 17.671 s]
+[INFO] backoffice-front-ui ................................ SUCCESS [ 13.575 s]
+[INFO] booking-service .................................... SUCCESS [ 16.881 s]
+[INFO] config-service ..................................... SUCCESS [ 12.269 s]
+[INFO] customer-service ................................... SUCCESS [ 12.101 s]
+[INFO] discovery-service .................................. SUCCESS [  9.955 s]
+[INFO] gateway-service .................................... SUCCESS [ 13.826 s]
+[INFO] search-service ..................................... SUCCESS [ 15.255 s]
+[INFO] storefront-ui ...................................... SUCCESS [ 13.028 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+```
+
+The JaCoCo result will be available on dirs: `$module-name\target\site\jacoco\index.html`.
+
+>**Note**: change the `module-name` to each module name in this project to find out the JaCoCo result.
+
+API Docs
+---
+This project

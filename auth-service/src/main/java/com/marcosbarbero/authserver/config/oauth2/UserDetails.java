@@ -1,4 +1,4 @@
-package com.marcosbarbero.authserver.authentication;
+package com.marcosbarbero.authserver.config.oauth2;
 
 import com.marcosbarbero.authserver.model.entity.enums.UserStatus;
 import org.springframework.security.core.GrantedAuthority;
