@@ -1,4 +1,4 @@
-Airline booking
+Airline Booking Flights
 ---
 It' an airline ticket reservation system. All it' documentation can be found in the `docs` dir.
 
@@ -16,7 +16,6 @@ This project was built with the following technologies:
   - [JaCoCo](http://www.eclemma.org/jacoco/)
   - [AngularJS - 1](https://angularjs.org/)
   - [MySQL - 5.7.14](https://www.mysql.com/)
-  - [Redis - 3.2.3](http://redis.io/)
   
 Adding Project Lombok Agent
 ---
@@ -174,4 +173,27 @@ $ java -jar target/customer-service.jar
 $ java -jar target/search-service.jar
 ```
 
+Once all projects are running you can check it's list on `Eureka's dashboard` in http://localhost:8761/, the application names will become
+ a route in the `gateway-service` that's running in port `8080`. Now you can reach any service documentation just reaching the following URIs.
+ 
+  - http://localhost:8080/bookings/docs/api.html
+  - http://localhost:8080/customers/docs/api.html
+  - http://localhost:8080/search/docs/api.html
+
+To consume the APIs you will need to generate an `access_token` and add it to the request header.
+The default clientId is `booking-app` and it' secret is `secret`.  
+
+Sample request:
+```
+$ curl -u booking-app:secret http://localhost:8080/uaa/oauth/token
+```
+
+
 >**Note**: Before run this project remember to configure properly the datasources in the `configserver` or in each project's `application.yml` file.
+
+Feedback
+---
+
+It's a good approach to evaluate the architectural knowledge of a candidate because it goes in almost all layers of a
+ real application. The bad part here is the time frame established to complete, I think that most of the appliers are currently
+ working in any other job, with that in mind the time frame becomes very tight due the project size.
