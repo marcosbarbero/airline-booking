@@ -1,0 +1,103 @@
+= Search API
+Marcos Barbero
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+
+[introduction]
+= Introduction
+It's a RESTful API manage Search application. To consume follow the steps below.
+
+[[overview]]
+= Overview
+
+[[overview-http-verbs]]
+== HTTP Verbs
+The Search API tries to adhere as closely as possible to standard HTTP and REST conventions in its use of HTTP verbs.
+|===
+| Verb | Usage
+
+| `GET`
+| Used to retrieve one or more resources
+
+|===
+
+[[overview-http-status-codes]]
+== HTTP Status Codes
+|===
+| Status code | Usage
+
+| `200 OK`
+| Standard response for successful HTTP requests. +
+The actual response will depend on the request method used. +
+In a GET request, the response will contain an entity corresponding to the requested resource. +
+
+| `400 Bad Request`
+| The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message or parameter).
+
+| `404 Not Found`
+| The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible.
+
+| `5xx Server Error`
+|  Indicate cases in which the server is aware that it has encountered an error or is otherwise incapable of performing the request.
+
+|===
+
+[[production-ready]]
+= Production ready
+This API is built in http://projects.spring.io/spring-boot/[Spring Boot]. To make Ops work easier we put together some +
+production ready endpoints from https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html[Spring Boot Actuator].
+
+To consume those endpoints take a look at the link:/manage/docs/[Docs].
+
+[[resources]]
+= Resources
+In this section we going to see how to consume this API resources.
+
+[[resources-airport]]
+== Airport
+The resource containing all the information about Airports
+
+[[resource-airport-get]]
+=== Get all resources
+A `GET` request recovery a list of airports from path
+include::{snippets}/test-get-all-airports/http-request.adoc[]
+
+==== Request
+include::{snippets}/test-get-all-airports/curl-request.adoc[]
+
+==== Response
+
+===== Headers
+include::{snippets}/test-get-all-airports/response-headers.adoc[]
+
+===== Fields
+include::{snippets}/test-get-all-airports/response-fields.adoc[]
+
+===== Body
+include::{snippets}/test-get-all-airports/http-response.adoc[]
+
+== Flights
+The resource containing a the Flights info.
+
+[[resource-flights-get]]
+=== Filter
+A `GET` request recovery a list of flights from path
+include::{snippets}/test-get-flights/request-parameters.adoc[]
+
+==== Request
+include::{snippets}/test-get-flights/curl-request.adoc[]
+
+==== Response
+
+===== Headers
+include::{snippets}/test-get-flights/response-headers.adoc[]
+
+===== Fields
+include::{snippets}/test-get-flights/response-fields.adoc[]
+
+===== Body
+include::{snippets}/test-get-flights/http-response.adoc[]

@@ -30,12 +30,6 @@ public class FlightService {
         }
     }
 
-    public Page<Flight> getAll(Pageable pageable) {
-        Page<Flight> page = this.flightRepository.findAll(pageable);
-        validate(page.getContent());
-        return page;
-    }
-
     public Collection<Flight> get(String origin, String dest, Date departure) {
         Collection<Flight> flights = this.flightRepository.findBy(origin, dest, departure);
         validate(flights);

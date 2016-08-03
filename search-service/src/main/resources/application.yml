@@ -4,6 +4,8 @@ logging:
   level:
     com.netflix.discovery: 'OFF'
 
+security.ignored: /docs/**
+
 spring:
   application:
     name: search
@@ -29,3 +31,6 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
         ddl-auto: validate
+
+management:
+  context-path: /manage

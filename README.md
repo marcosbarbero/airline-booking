@@ -84,4 +84,4 @@ The JaCoCo result will be available on dirs: `$module-name\target\site\jacoco\in
 
 API Docs
 ---
-This project
+All backend services have a built-in documentation that can be accessed by the uri `/docs/api.html`

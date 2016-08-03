@@ -1,6 +1,5 @@
 package com.marcosbarbero.booking.web.resources;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.marcosbarbero.booking.dto.BookingDTO;
 import com.marcosbarbero.booking.dto.converter.BookingConverter;
@@ -11,7 +10,6 @@ import com.marcosbarbero.booking.model.entity.enums.BookingStatus;
 import com.marcosbarbero.booking.model.repository.BookingRepository;
 import com.marcosbarbero.booking.service.BookingService;
 import com.marcosbarbero.booking.web.resources.error.ResponseExceptionHandler;
-import lombok.extern.slf4j.Slf4j;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -29,9 +27,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Matchers.any;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -40,7 +36,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  *
  * @author Marcos Barbero
  */
-@Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class BookingControllerTest {

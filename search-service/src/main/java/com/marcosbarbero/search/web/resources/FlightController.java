@@ -3,6 +3,7 @@ package com.marcosbarbero.search.web.resources;
 import com.marcosbarbero.search.model.entity.Flight;
 import com.marcosbarbero.search.service.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,7 +33,7 @@ public class FlightController {
     @RequestMapping(method = GET)
     public ResponseEntity<Collection<Flight>> get(@RequestParam String origin,
                                                   @RequestParam String dest,
-                                                  @RequestParam Date departure) {
+                                                  @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date departure) {
         return ResponseEntity.ok(this.flightService.get(origin, dest, departure));
     }
 }
