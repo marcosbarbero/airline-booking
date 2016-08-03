@@ -185,7 +185,7 @@ The default clientId is `booking-app` and it' secret is `secret`.
 
 Sample request:
 ```
-$ curl -u booking-app:secret http://localhost:8080/uaa/oauth/token
+$ curl -u booking-app:secret http://localhost:8080/uaa/oauth/token -d "grant_type=client_credentials"
 ```
 
 
