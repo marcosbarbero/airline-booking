@@ -1,0 +1,120 @@
+= Customer API
+Marcos Barbero
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+
+[introduction]
+= Introduction
+It's a RESTful API manage Customer application. To consume follow the steps below.
+
+[[overview]]
+= Overview
+
+[[overview-http-verbs]]
+== HTTP Verbs
+The `Customer API` tries to adhere as closely as possible to standard HTTP and REST conventions in its use of HTTP verbs.
+|===
+| Verb | Usage
+
+| `GET`
+| Used to retrieve one or more resources
+
+| `POST`
+| Used to create a resource
+
+|===
+
+[[overview-http-status-codes]]
+== HTTP Status Codes
+|===
+| Status code | Usage
+
+| `200 OK`
+| Standard response for successful HTTP requests. +
+The actual response will depend on the request method used. +
+In a GET request, the response will contain an entity corresponding to the requested resource. +
+
+| `201 Created`
+| The request has been fulfilled, resulting in the creation of a new resource.
+
+| `400 Bad Request`
+| The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message or parameter).
+
+| `404 Not Found`
+| The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible.
+
+| `422 Unprocessable Entity`
+| Means the server understands the content type of the request entity, and the syntax of the request entity is correct, +
+but was unable to process the contained instructions. +
+For example, this error condition may occur if an JSON request body contains well-formed (i.e., syntactically correct), +
+but semantically erroneous, JSON content.
+
+| `5xx Server Error`
+|  Indicate cases in which the server is aware that it has encountered an error or is otherwise incapable of performing the request.
+
+|===
+
+[[production-ready]]
+= Production ready
+This API is built in http://projects.spring.io/spring-boot/[Spring Boot]. To make Ops work easier we put together some +
+production ready endpoints from https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html[Spring Boot Actuator].
+
+To consume those endpoints take a look at the link:/manage/docs/[Docs].
+
+[[resources]]
+= Resources
+In this section we going to see how to consume this API resources.
+
+[[resources-customer]]
+== Customer
+The resource containing all the information about Airports
+
+[[resource-customer-post]]
+=== Create a resource
+A `POST` request creates a new resource from path
+include::{snippets}/test-post-customer/http-request.adoc[]
+
+==== Request
+include::{snippets}/test-post-customer/curl-request.adoc[]
+
+==== Response
+
+===== Headers
+include::{snippets}/test-post-customer/response-headers.adoc[]
+
+=== Get a resource
+A `GET` request retrieve a resource from path
+
+[[resource-customer-get-by-id]]
+==== Get a resource by ID
+include::{snippets}/test-get-customer/http-request.adoc[]
+
+===== Request
+include::{snippets}/test-get-customer/curl-request.adoc[]
+
+===== Response
+
+====== Headers
+include::{snippets}/test-get-customer/response-headers.adoc[]
+
+====== Fields
+include::{snippets}/test-get-customer/response-fields.adoc[]
+
+[[resource-customer-get-by-username]]
+==== Get a resource by username
+include::{snippets}/test-get-customer-by-username/http-request.adoc[]
+
+===== Request
+include::{snippets}/test-get-customer-by-username/curl-request.adoc[]
+
+===== Response
+
+====== Headers
+include::{snippets}/test-get-customer-by-username/response-headers.adoc[]
+
+====== Fields
+include::{snippets}/test-get-customer-by-username/response-fields.adoc[]
