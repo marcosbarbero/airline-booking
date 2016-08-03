@@ -7,8 +7,6 @@ management:
   context-path: /manage
 
 spring:
-  application:
-    name: customers
   datasource:
     url: 'jdbc:mysql://localhost:3306/booking'
     username: root

@@ -1,8 +1,6 @@
 server.port: 8443
 
 spring:
-  application:
-    name: uaa
   datasource:
     url: 'jdbc:mysql://localhost:3306/booking'
     username: root

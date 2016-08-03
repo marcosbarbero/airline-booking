@@ -7,8 +7,6 @@ logging:
 security.ignored: /docs/**
 
 spring:
-  application:
-    name: search
   mvc:
     date-format: yyyy-MM-dd
   jackson:
