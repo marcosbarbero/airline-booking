@@ -6,6 +6,9 @@ security:
     user-info-uri: http://uaa/me
     load-balanced: true
 
+management:
+  context-path: /manage
+
 logging:
   level:
     com.netflix.discovery: 'OFF'

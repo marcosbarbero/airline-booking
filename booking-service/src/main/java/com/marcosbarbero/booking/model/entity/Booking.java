@@ -1,6 +1,7 @@
 package com.marcosbarbero.booking.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.marcosbarbero.booking.model.entity.enums.BookingStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,6 +24,7 @@ import java.util.Date;
 @Table(schema = "booking")
 @EqualsAndHashCode(callSuper = true)
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Booking extends AutoId implements Serializable {
     private static final long serialVersionUID = 393412128505036550L;
 

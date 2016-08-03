@@ -21,7 +21,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static org.mockito.BDDMockito.any;
@@ -30,11 +29,11 @@ import static org.springframework.restdocs.headers.HeaderDocumentation.headerWit
 import static org.springframework.restdocs.headers.HeaderDocumentation.responseHeaders;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
+import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
 import static org.springframework.restdocs.payload.JsonFieldType.NUMBER;
 import static org.springframework.restdocs.payload.JsonFieldType.STRING;
 import static org.springframework.restdocs.payload.PayloadDocumentation.*;
-import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
-import static org.springframework.restdocs.request.RequestDocumentation.requestParameters;
+import static org.springframework.restdocs.request.RequestDocumentation.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -75,9 +74,9 @@ public class CustomerControllerTest {
     private MockHttpServletRequestBuilder doGet(String uri, Integer id, String... args) {
         MockHttpServletRequestBuilder doGet;
         if (id != null) {
-            doGet = MockMvcRequestBuilders.get(uri, id);
+            doGet = get(uri, id);
         } else {
-            doGet = MockMvcRequestBuilders.get(uri).param(args[0], args[1]);
+            doGet = get(uri).param(args[0], args[1]);
         }
         return doGet;
     }
@@ -131,10 +130,13 @@ public class CustomerControllerTest {
         customer.setId(id);
         given(this.repository.findOne(id)).willReturn(customer);
 
-        ResultActions result = this.mockMvc.perform(doGet(CustomerController.URI + "/{id}", id));
-        result.andExpect(status().isOk())
+        this.mockMvc.perform(doGet(CustomerController.URI + "/{id}", id))
+                .andExpect(status().isOk())
                 .andDo(
                         document("{method-name}",
+                                pathParameters(
+                                        parameterWithName("id").description("Integer with Customer Id representation")
+                                ),
                                 responseFields(
                                         fieldWithPath("id").description("The Id, e.g: 3786").type(NUMBER),
                                         fieldWithPath("username").description("The username, e.g: ironman").type(STRING),

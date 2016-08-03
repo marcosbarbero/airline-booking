@@ -1,4 +1,4 @@
-= Customer API
+= Booking API
 Marcos Barbero
 :doctype: book
 :icons: font
@@ -9,14 +9,14 @@ Marcos Barbero
 
 [introduction]
 = Introduction
-It's a RESTful API manage Customer application. To consume follow the steps below.
+It's a RESTful API manage `Booking` application. To consume follow the steps below.
 
 [[overview]]
 = Overview
 
 [[overview-http-verbs]]
 == HTTP Verbs
-The `Customer API` tries to adhere as closely as possible to standard HTTP and REST conventions in its use of HTTP verbs.
+The `Booking API` tries to adhere as closely as possible to standard HTTP and REST conventions in its use of HTTP verbs.
 |===
 | Verb | Usage
 
@@ -25,6 +25,9 @@ The `Customer API` tries to adhere as closely as possible to standard HTTP and R
 
 | `POST`
 | Used to create a resource
+
+| `PUT`
+| Used to update a resource
 
 |===
 
@@ -69,54 +72,68 @@ To consume those endpoints take a look at the link:/manage/docs/[Docs].
 = Resources
 In this section we going to see how to consume this API resources.
 
-[[resources-customer]]
-== Customer
+[[resources-booking]]
+== Booking
 The resource containing all the information about Airports
 
-[[resource-customer-post]]
+[[resource-booking-post]]
 === Create a resource
 A `POST` request creates a new resource from path
-include::{snippets}/test-post-customer/http-request.adoc[]
+include::{snippets}/test-post-booking/http-request.adoc[]
 
 ==== Request
-include::{snippets}/test-post-customer/curl-request.adoc[]
+include::{snippets}/test-post-booking/curl-request.adoc[]
 
 ==== Response
 
 ===== Headers
-include::{snippets}/test-post-customer/response-headers.adoc[]
+include::{snippets}/test-post-booking/response-headers.adoc[]
 
-=== Get a resource
-A `GET` request retrieve a resource from path
+=== Update status
+A `PUT` request updates a booking status from path
+include::{snippets}/test-update-status/http-request.adoc[]
 
-[[resource-customer-get-by-id]]
-==== Get a resource by ID
-Path parameters
-include::{snippets}/test-get-customer/path-parameters.adoc[]
-include::{snippets}/test-get-customer/http-request.adoc[]
+==== Request
+include::{snippets}/test-update-status/curl-request.adoc[]
+
+==== Response
+
+This request will have response `status code` 204 `NO_CONTENT`.
+
+
+=== Get resources
+A `GET` request retrieve resources from path
+
+[[resource-booking-get-by-customer-id]]
+==== Get bookings by customer ID
+include::{snippets}/test-get-by-customer-id/http-request.adoc[]
+include::{snippets}/test-get-by-customer-id/path-parameters.adoc[]
 
 ===== Request
-include::{snippets}/test-get-customer/curl-request.adoc[]
+include::{snippets}/test-get-by-customer-id/curl-request.adoc[]
 
 ===== Response
 
 ====== Headers
-include::{snippets}/test-get-customer/response-headers.adoc[]
+include::{snippets}/test-get-by-customer-id/response-headers.adoc[]
 
 ====== Fields
-include::{snippets}/test-get-customer/response-fields.adoc[]
+include::{snippets}/test-get-by-customer-id/response-fields.adoc[]
 
-[[resource-customer-get-by-username]]
-==== Get a resource by username
-include::{snippets}/test-get-customer-by-username/http-request.adoc[]
+[[resource-booking-get-by-id]]
+==== Get a booking by ID
+include::{snippets}/test-get-by-id/http-request.adoc[]
+include::{snippets}/test-get-by-id/path-parameters.adoc[]
 
 ===== Request
-include::{snippets}/test-get-customer-by-username/curl-request.adoc[]
+include::{snippets}/test-get-by-id/curl-request.adoc[]
 
 ===== Response
 
 ====== Headers
-include::{snippets}/test-get-customer-by-username/response-headers.adoc[]
+include::{snippets}/test-get-by-id/response-headers.adoc[]
 
 ====== Fields
-include::{snippets}/test-get-customer-by-username/response-fields.adoc[]
+include::{snippets}/test-get-by-id/response-fields.adoc[]
+
+
