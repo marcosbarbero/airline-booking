@@ -1,0 +1,28 @@
+# Default configuration for all microservices
+security:
+  ignored: /docs/**,/info,/health
+  oauth2.resource:
+    prefer-token-info: false
+    user-info-uri: http://uaa/me
+    load-balanced: true
+    
+logging:
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud.config.client.ConfigServicePropertySourceLocator: 'OFF'
+    
+management:
+  context-path: /manage    
+
+eureka:
+  client:
+    healthcheck.enabled: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    lease-expiration-duration-In-seconds: 5
+    statusPageUrlPath: ${management.context-path}/info
+    healthCheckUrlPath: ${management.context-path}/health
+    
+spring:
+  application.index: ${spring.application.name}:${HOST:${random.value}}

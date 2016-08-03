@@ -1,0 +1,4 @@
+# Eureka config
+logging:
+  level:
+    com.netflix.discovery: 'INFO'

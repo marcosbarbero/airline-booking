@@ -84,4 +84,94 @@ The JaCoCo result will be available on dirs: `$module-name\target\site\jacoco\in
 
 API Docs
 ---
-All backend services have a built-in documentation that can be accessed by the uri `/docs/api.html`
+All backend services have a built-in documentation that can be accessed by the uri `/docs/api.html`.  
+
+    - search-service
+    - customer-service
+    - booking-service
+    - auth-service - `missing docs`
+    
+Distributed configuration
+---
+This project is built under microservices architectural styles and use a distributed configuration server to provide applications 
+config by environment. Those configurations will be storage in a git repository like [this](https://github.com/marcosbarbero/airline-config-repo/blob/master/application.yml) 
+and should be pointed to the file in `config-service\src\main\resources\bootstrap.yml` on property:
+
+```
+spring.cloud.config:
+  server:
+    git:
+      uri: https://github.com/marcosbarbero/airline-config-repo.git
+```
+
+Any additional information can be found on it's [official docs](http://cloud.spring.io/spring-cloud-config/spring-cloud-config.html).  
+You can find a config-repo sample files under the dir `docs\config-repo`.  
+
+>**Note**:It's not mandatory to use the `configserver` to run this project. You can change manually each project configuration under in the
+ file `src\main\resources\application.yml`
+    
+Not done in this project
+---
+
+    - Customers interface
+    - Back office inventory system
+    - Back office API
+    - Staff team interface
+    - Email alerts
+    
+
+Issues faced
+---
+The major issue here was the time frame proposed to complete this challenge with a good quality. Once I figured out I could not 
+complete that I've focused to delivery the backend API, so any developer can build it's interface in any spec or device.
+
+Assumptions
+---
+I assumed that this system should be made as an API once one of it's non-functional requirements is to the core
+must be ready to serve mobile apps in future without any modification. Taking that in count I've also built it securely
+using [OAuth2](http://oauth.net/2/) so any kinda of `client` can consume that without a major issues.  
+Once the system core must be ready for mobile apps and single page apps I choose to make it under a microservices architectural style
+to ensure it's scalability and high availability.  
+For last but not least, I assumed also that the inventory system was already built.
+
+Run
+---
+This section will cover how to run the services by hands in a local machine. I could not complete the cloud deployment doc requirement.    
+After the project *build* you can run this project with a simple `java -jar` in the following sequence.
+
+1. config-service
+```
+$ java -jar target/config-server.jar
+```
+
+2. discovery-service
+```
+$ java -jar target/discovery-service.jar
+```
+
+3. gateway-service
+```
+$ java -jar target/gateway-service.jar
+```
+
+4. auth-service
+```
+$ java -jar target/auth-service.jar
+```
+
+5. booking-service
+```
+$ java -jar target/booking-service.jar
+```
+
+6. customer-service
+```
+$ java -jar target/customer-service.jar
+```
+
+7. search-service
+```
+$ java -jar target/search-service.jar
+```
+
+>**Note**: Before run this project remember to configure properly the datasources in the `configserver` or in each project's `application.yml` file.

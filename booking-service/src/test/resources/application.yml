@@ -1,3 +1,5 @@
+security.ignored: /**
+
 spring:
   jackson:
     defaultPropertyInclusion: NON_NULL

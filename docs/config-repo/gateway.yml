@@ -1,0 +1,3 @@
+zuul:
+  ignored-services: discovery,configserver,gateway
+  sensitive-headers:

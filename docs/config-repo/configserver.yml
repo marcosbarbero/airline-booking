@@ -1,0 +1,4 @@
+security:
+  user:
+    name: configserver
+    password: d8f926ad

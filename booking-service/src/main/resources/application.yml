@@ -1,7 +1,7 @@
 server.port: 8081
 
 security:
-  ignored: /console/**,/docs/**
+  ignored: /docs/**
   oauth2.resource:
     user-info-uri: http://uaa/me
     load-balanced: true

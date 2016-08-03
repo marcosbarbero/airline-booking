@@ -6,8 +6,8 @@ security:
 
 spring:
   social.twitter:
-    appId: 7c7ANtB6g51L8nXicy8tfVYaH
-    appSecret: FRkm8zYoKqEczLS99EL6Y6h3hKsoIwMqNXmqIYosBwnKvIUeRC
+    appId: $key
+    appSecret: $secret
 
 booking:
   endpoints:

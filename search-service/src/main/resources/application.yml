@@ -4,7 +4,12 @@ logging:
   level:
     com.netflix.discovery: 'OFF'
 
-security.ignored: /docs/**
+security:
+  ignored: /docs/**
+  oauth2.resource:
+    prefer-token-info: false
+    user-info-uri: http://uaa/me
+    load-balanced: true
 
 spring:
   mvc:
